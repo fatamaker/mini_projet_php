@@ -79,14 +79,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 4px;
         }
 
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004085;
+        .btn-dark {
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            width: 100%;
         }
 
         /* Styling for the search result list */
@@ -143,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="date_fin" class="form-label">Date de Fin</label>
             <input type="date" name="date_fin" class="form-control" id="date_fin" required>
         </div>
-        <button type="submit" class="btn btn-primary">Rechercher</button>
+        <button type="submit" class="btn btn-dark">Rechercher</button>
     </form>
 
     <?php if (isset($voitures)): ?>

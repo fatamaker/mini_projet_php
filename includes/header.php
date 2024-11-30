@@ -24,11 +24,12 @@ define('img_URL', '/location_voiture/assets/images');
     .carousel-item img {
     height: 500px;
     object-fit: cover;}
-.uniform-img {
-width: 100%; /* S'adapte à la largeur du conteneur */
-height: 200px; /* Hauteur fixe */
-object-fit: cover; /* Garde le ratio et remplit l'espace */
-border-radius: 8px; /* Optionnel : coins arrondis pour un meilleur design */}
+    .uniform-img {
+    width: 100%; /* S'adapte à la largeur du conteneur */
+    height: 200px; /* Hauteur fixe */
+    object-fit: cover; /* Garde le ratio et remplit l'espace */
+    border-radius: 8px; /* Optionnel : coins arrondis pour un meilleur design */
+    }
 </style>
 </head>
 

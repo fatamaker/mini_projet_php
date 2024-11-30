@@ -17,15 +17,78 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
  <style>
-.container-inscri{
-  max-width: 700px;
-  margin: auto;
-  background-color: #f8f9fa; /* Couleur de fond légère */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container-inscri {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #ffffff; /* Clean white background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.container-inscri:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40; /* Dark gray */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057; /* Slightly darker gray */
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #494b4e; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(124, 125, 126, 0.5);
+}
+.btn-dark {
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.alert {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .container-inscri {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
 }
 </style>
+
 
 <div class="container-inscri mt-4">
     <h2>Inscription</h2>
@@ -50,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password" class="form-label">Mot de passe</label>
             <input type="password" name="password" class="form-control" id="password" required>
         </div>
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
+        <button type="submit" class="btn btn-dark">S'inscrire</button>
     </form>
 </div>
 

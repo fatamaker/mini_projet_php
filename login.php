@@ -95,17 +95,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .container-login .form-control {
             border-radius: 4px;
         }
-
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+        
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .form-control:focus {
+        border-color: #494b4e; /* Blue border on focus */
+        box-shadow: 0 0 5px rgba(124, 125, 126, 0.5);
         }
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004085;
+        .btn-dark {
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            width: 100%;
         }
-
         .alert-danger {
             color: #ff0000;
             background-color: #f8d7da;
@@ -128,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password" class="form-label">Mot de passe</label>
             <input type="password" name="password" class="form-control" id="password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Se connecter</button>
+        <button type="submit" class="btn btn-dark">Se connecter</button>
     </form>
 </div>
 
