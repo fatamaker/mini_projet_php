@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .navbar .nav-link {
-            color: black !important;
+            color: white !important;
         }
 
         .navbar .nav-link:hover {

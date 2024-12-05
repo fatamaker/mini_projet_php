@@ -1,6 +1,12 @@
 <?php
+
 include 'includes/db.php';
-include 'includes/header.php';
+
+define('BASE_URL', '/location_voiture');
+
+
+define('img_URL', '/location_voiture/assets/images');
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'];
@@ -13,107 +19,189 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare($query);
     $stmt->execute([$nom, $adresse, $telephone, $email, $password]);
 
-    echo "<div class='alert alert-success'>Inscription réussie! Vous pouvez maintenant vous connecter.</div>";
+    $successMessage = "Inscription réussie! Vous pouvez maintenant vous connecter.";
 }
 ?>
- <style>
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 0;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .registration-container {
+            display: flex;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 800px;
+            max-width: 100%;
+        }
+
+        .illustration {
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            width: 50%;
+        }
+
+        .illustration img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .form-container {
+            padding: 40px;
+            width: 50%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #343a40;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-control:focus {
+            border-color: #494b4e;
+            outline: none;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+        }
+
+
+        .btn-submit {
+            width: 50%;
+            background-color: #343a40;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #495057;
+        }
+
+        .alert {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #28a745;
+            border-radius: 5px;
+        }
+        .login-link {
+    text-align: right;
+    margin-top: 30PX;
+    font-size: 16px;
 }
 
-.container-inscri {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #ffffff; /* Clean white background */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-}
-
-.container-inscri:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #343a40; /* Dark gray */
-    font-size: 28px;
+        .login-link a {
+    color: #010102;
+    text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.form-label {
-    font-weight: 600;
-    color: #495057; /* Slightly darker gray */
+.login-link a:hover {
+    color: #626263;
 }
 
-.form-control {
-    border: 1px solid #ced4da;
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+    margin-right: 20px;
     border-radius: 5px;
-    padding: 10px;
-    transition: all 0.3s ease-in-out;
-}
-
-.form-control:focus {
-    border-color: #494b4e; /* Blue border on focus */
-    box-shadow: 0 0 5px rgba(124, 125, 126, 0.5);
-}
-.btn-dark {
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-}
-
-.alert {
     font-size: 16px;
     text-align: center;
-    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-@media (max-width: 768px) {
-    .container-inscri {
-        padding: 20px;
+/* Animation for the message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
     }
-
-    h2 {
-        font-size: 24px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
-</style>
 
 
-<div class="container-inscri mt-4">
-    <h2>Inscription</h2>
-    <form method="POST">
-        <div class="mb-3">
-            <label for="nom" class="form-label">Nom</label>
-            <input type="text" name="nom" class="form-control" id="nom" required>
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <div class="illustration">
+            <img src="<?= img_URL ?>/logo.png" alt="Illustration"> <!-- Replace with your illustration image -->
         </div>
-        <div class="mb-3">
-            <label for="adresse" class="form-label">Adresse</label>
-            <input type="text" name="adresse" class="form-control" id="adresse" required>
-        </div>
-        <div class="mb-3">
-            <label for="telephone" class="form-label">Téléphone</label>
-            <input type="text" name="telephone" class="form-control" id="telephone" required>
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" id="email" required>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" name="password" class="form-control" id="password" required>
-        </div>
-        <button type="submit" class="btn btn-dark">S'inscrire</button>
-    </form>
-</div>
+        <div class="form-container">
+            <h2>Inscription</h2>
+            <form method="POST">
+            <?php if (!empty($successMessage)) : ?>
+                    <div class="alert alert-success"><?= $successMessage ?></div>
+                <?php endif; ?>
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" name="nom" class="form-control" id="nom" required>
 
+                <label for="adresse" class="form-label">Adresse</label>
+                <input type="text" name="adresse" class="form-control" id="adresse" required>
+
+                <label for="telephone" class="form-label">Téléphone</label>
+                <input type="text" name="telephone" class="form-control" id="telephone" required>
+
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="email" required>
+
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" name="password" class="form-control" id="password" required>
+
+                <button type="submit" class="btn-submit">S'inscrire</button>
+            </form>
+            <div class="login-link">
+            <a class="nav-link" href="<?= BASE_URL ?>/login.php">Se connecter</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
         }
 
         .navbar .nav-link {
-            color: black !important;
+            color: white !important;
         }
 
         .navbar .nav-link:hover {

@@ -1,7 +1,7 @@
 <?php
 include '../includes/db.php';
 include '../includes/header.php';
-session_start();
+
 
 if (!isset($_SESSION['client_id'])) {
     header("Location: login.php");
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .navbar .nav-link {
-            color: black !important;
+            color: white !important;
         }
 
         .navbar .nav-link:hover {
@@ -65,6 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           
+           
         }
 
         .container_search h2 {

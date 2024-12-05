@@ -6,33 +6,15 @@
         <div class="row">
           <div class="col-sm-12">
           <h2>Contactez-nous</h2>
-          <p>Vous avez des questions ? Notre équipe est là pour vous aider !</p>
-          <button type="button" class="btn btn-outline-light">Contactez</button>
+          Vous avez des questions ? Notre équipe est là pour vous aider !<br>
+          <br><button type="button" class="btn btn-outline-light">Contactez</button>
           </div>
         </div>        
       </div>
 
 
 
-      <div class="container1 footer-wrapper">
-        <div class="cmp-container">
-          
-           <div class="">
-            <hr>
-            <div class="row">
-              <div class="col-sm-6">  
-              <!-- <img src="assets/images/—Pngtree—sport car logo vector_6398339.png" > -->
-              <button type="button" class="btn btn-outline-light">En Tunisie</button>
-              </div>
-           
-          </div>
-          <div class="col-sm-6">
-            <div class="row">
-              
-            </div>
-          </div>
-            
-          </div>
+     
           <hr>
           
           <div class="row">
@@ -58,3 +40,6 @@
 <script src="/assets/js/scripts.js"></script>
 </body>
 </html>
+
+
+

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Démarrer la session en haut du fichier
+session_start();
 define('BASE_URL', '/location_voiture');
 define('img_URL', '/location_voiture/assets/images');
 ?>
@@ -30,12 +30,49 @@ define('img_URL', '/location_voiture/assets/images');
     object-fit: cover; /* Garde le ratio et remplit l'espace */
     border-radius: 8px; /* Optionnel : coins arrondis pour un meilleur design */
     }
+    .navbar-nav .nav-link:hover {
+    color: #f8f9fa;
+    text-decoration: underline;
+}
+.navbar .nav-link {
+    color: #fff !important;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* Footer */
+.footer-wrapper {
+background-color: #212529;
+color: hsl(0, 0%, 100%);
+}
+
+
+footer {
+    background-color:#212529;
+    color: #f8f9fa;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.car-listings .card {
+    margin-bottom: 20px;
+}
+
+
 </style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8b8a97;">
-    <div class="container-fluid">
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <div class="container-fluid">
+ 
         <img src="<?= img_URL ?>/logo.png" class="d-block" alt="Logo Location Voitures">
         <a class="navbar-brand" href="<?= BASE_URL ?>/index.php">Location Voitures</a>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -73,6 +110,7 @@ define('img_URL', '/location_voiture/assets/images');
         </div>
     </div>
 </nav>
+
 
 <div class="container mt-4">
     <!-- Contenu de la page ici -->
